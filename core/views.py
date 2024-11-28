@@ -10,23 +10,17 @@ def index(request):
 
 
 def appointment(request):
-    # Check if method is post
-    if request.method == "POST":
-        # Creating a form instance
+    if request.method == 'POST':
         form = AppointmentForms(request.POST)
-        print('Instance created')
         if form.is_valid():
-            print('Validation check')
-            try:
-                print('testing1')
-                form.save()
-                print('testing2')
-                messages.success(request, 'Appointment scheduled successfully!')
-                return redirect('appointment')  # Redirect to empty form
-            except:
-                pass
-        
+            form.save()
+            messages.success(request, 'Appointment scheduled successfully!')
+            return redirect('appointment')
+        else:
+            print("Form errors:", form.errors)
+            messages.error(request, 'There was an error with your submission. Please check all fields.')
     else:
         form = AppointmentForms()
+    
     return render(request, 'appointment.html', {'form': form})
     

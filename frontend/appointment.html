@@ -40,12 +40,20 @@
             <form class="space-y-6" method="post" action="{% url 'appointment'%}">
              {% csrf_token %}
              
-             <!-- Name Field -->
+             <!-- First Name Field -->
              <div class="mb-6">
-                 <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
-                 <input type="text" id="name" name="name" required
+                 <label for="firstname" class="block text-gray-700 text-sm font-bold mb-2">First Name</label>
+                 <input type="text" id="firstname" name="firstname" required
                      class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                     placeholder="Enter your name">
+                     placeholder="Enter your first name">
+             </div>
+
+             <!-- Last Name Field -->
+             <div class="mb-6">
+                 <label for="lastname" class="block text-gray-700 text-sm font-bold mb-2">Last Name</label>
+                 <input type="text" id="lastname" name="lastname" required
+                     class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                     placeholder="Enter your last name">
              </div>
 
              <!-- Email Field -->
@@ -58,10 +66,24 @@
 
              <!-- Phone Field -->
              <div class="mb-6">
-                 <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Phone Number</label>
-                 <input type="tel" id="phone" name="phone" required
+                 <label for="phonenumber" class="block text-gray-700 text-sm font-bold mb-2">Phone Number</label>
+                 <input type="tel" id="phonenumber" name="phonenumber" required
                      class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                      placeholder="Enter your phone number">
+             </div>
+
+             <!-- Service Type Field -->
+             <div class="mb-6">
+                 <label for="service_type" class="block text-gray-700 text-sm font-bold mb-2">Service Type</label>
+                 <select id="service_type" name="service_type" required
+                     class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white">
+                     <option value="general_check-up">General Check-up</option>
+                     <option value="teeth_cleaning">Teeth Cleaning</option>
+                     <option value="teeth_whitening">Teeth Whitening</option>
+                     <option value="dental_implants">Dental Implants</option>
+                     <option value="root_canal">Root Canal</option>
+                     <option value="other">Other</option>
+                 </select>
              </div>
 
              <!-- Preferred Date Field -->
@@ -78,10 +100,10 @@
                      class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white">
              </div>
 
-             <!-- Message Field -->
+             <!-- Additional Notes Field -->
              <div class="mb-6">
-                 <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Additional Notes</label>
-                 <textarea id="message" name="message" rows="4"
+                 <label for="additional_note" class="block text-gray-700 text-sm font-bold mb-2">Additional Notes</label>
+                 <textarea id="additional_note" name="additional_note" rows="4"
                      class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                      placeholder="Any additional information"></textarea>
              </div>
