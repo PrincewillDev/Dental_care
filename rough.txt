@@ -216,3 +216,136 @@
                   Book Appointment
                 </button>
               </div>
+
+
+              <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Appointment - DentalCare</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navigation (Same as index.html) -->
+    <nav class="bg-white shadow-lg">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex-shrink-0">
+            <span class="text-blue-600 text-2xl font-bold">DentalCare</span>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-center space-x-4">
+                <a href="{% url 'index' %}" class="text-blue-600 hover:text-blue-800 px-3 py-2 rounded-md font-medium">Home</a>
+                <a href="#services" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md font-medium">Services</a>
+                <a href="#about" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md font-medium">About</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md font-medium">Contact</a>
+                <!-- <a href="{% url 'appointment' %}" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md font-medium">Book Appointment</a> -->
+                <a href="signin.html" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Sign In</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Appointment Form Section -->
+    <div class="min-h-screen py-12">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+          <div class="px-6 py-8">
+            <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">
+              Book Your Appointment
+            </h2>
+
+            <form class="space-y-6" method="post" action="{% url 'appointment'%}">
+             {% csrf_token %}
+             
+             <!-- First Name Field -->
+             <div class="mb-6">
+                 <label for="firstname" class="block text-gray-700 text-sm font-bold mb-2">First Name</label>
+                 <input type="text" id="firstname" name="firstname" required
+                     class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                     placeholder="Enter your first name">
+             </div>
+
+             <!-- Last Name Field -->
+             <div class="mb-6">
+                 <label for="lastname" class="block text-gray-700 text-sm font-bold mb-2">Last Name</label>
+                 <input type="text" id="lastname" name="lastname" required
+                     class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                     placeholder="Enter your last name">
+             </div>
+
+             <!-- Email Field -->
+             <div class="mb-6">
+                 <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                 <input type="email" id="email" name="email" required
+                     class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                     placeholder="Enter your email">
+             </div>
+
+             <!-- Phone Field -->
+             <div class="mb-6">
+                 <label for="phonenumber" class="block text-gray-700 text-sm font-bold mb-2">Phone Number</label>
+                 <input type="tel" id="phonenumber" name="phonenumber" required
+                     class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                     placeholder="Enter your phone number">
+             </div>
+
+             <!-- Service Type Field -->
+             <div class="mb-6">
+                 <label for="service_type" class="block text-gray-700 text-sm font-bold mb-2">Service Type</label>
+                 <select id="service_type" name="service_type" required
+                     class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white">
+                     <option value="general_check-up">General Check-up</option>
+                     <option value="teeth_cleaning">Teeth Cleaning</option>
+                     <option value="teeth_whitening">Teeth Whitening</option>
+                     <option value="dental_implants">Dental Implants</option>
+                     <option value="root_canal">Root Canal</option>
+                     <option value="other">Other</option>
+                 </select>
+             </div>
+
+             <!-- Preferred Date Field -->
+             <div class="mb-6">
+                 <label for="preferred_date" class="block text-gray-700 text-sm font-bold mb-2">Preferred Date</label>
+                 <input type="date" id="preferred_date" name="preferred_date" required
+                     class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white">
+             </div>
+
+             <!-- Preferred Time Field -->
+             <div class="mb-6">
+                 <label for="preferred_time" class="block text-gray-700 text-sm font-bold mb-2">Preferred Time</label>
+                 <input type="time" id="preferred_time" name="preferred_time" required
+                     class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white">
+             </div>
+
+             <!-- Additional Notes Field -->
+             <div class="mb-6">
+                 <label for="additional_note" class="block text-gray-700 text-sm font-bold mb-2">Additional Notes</label>
+                 <textarea id="additional_note" name="additional_note" rows="4"
+                     class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                     placeholder="Any additional information"></textarea>
+             </div>
+
+             <!-- Submit Button -->
+             <div class="pt-4">
+              <button
+                type="submit"
+                class="w-full bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200"
+              >
+                Book Appointment
+              </button>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="bg-gray-800 text-white">
+      <!-- Footer content same as index.html -->
+    </footer>
+  </body>
+</html>

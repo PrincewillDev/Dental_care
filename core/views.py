@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from core.forms import AppointmentForms
 from core.models import Appointment
 from django.contrib import messages
+from django.contrib.auth import login
+from django.contrib.auth.models import User
 
 # Create your views here.
 def index(request):
@@ -23,4 +25,6 @@ def appointment(request):
         form = AppointmentForms()
     
     return render(request, 'appointment.html', {'form': form})
+    
+
     

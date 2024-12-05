@@ -1,6 +1,10 @@
 from django.db import models
+# from django.contrib.auth.models import AbstractUser
 import uuid
-# Create your models here.
+
+# Custom User model
+
+# Appointment model remains unchanged
 class Appointment(models.Model):
     GENERAL_CHECK_UP = 'general_check-up'
     TEETH_CLEANING = 'teeth_cleaning'
@@ -18,9 +22,9 @@ class Appointment(models.Model):
         (OTHER, 'other'), 
     ]
     
-    aid = models.UUIDField(primary_key=True, max_length=10, default = uuid.uuid4, editable=False)
+    aid = models.UUIDField(primary_key=True, max_length=10, default=uuid.uuid4, editable=False)
     email = models.EmailField(blank=False, null=False, max_length=70)
-    firstname = models.CharField(blank=False, null=False,max_length=70)
+    firstname = models.CharField(blank=False, null=False, max_length=70)
     lastname = models.CharField(blank=False, null=False, max_length=70)
     phonenumber = models.CharField(blank=False, null=False, max_length=20)
     preferred_date = models.DateField()
