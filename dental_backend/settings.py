@@ -145,3 +145,22 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.mailgun.org"                    # smtp-relay.sendinblue.com
+EMAIL_USE_TLS = True               # True
+EMAIL_PORT = "587"                    # 587
+EMAIL_HOST_USER = "postmaster@sandboxba34cd6ee3034fe58667f1f3be95f885.mailgun.org"               # your email address
+EMAIL_HOST_PASSWORD = "3d0250608972de1a50e34316ea39f69c-da554c25-e9508045"       # your password
+DEFAULT_FROM_EMAIL = "postmaster@sandboxba34cd6ee3034fe58667f1f3be95f885.mailgun.org"    # email ending with @sendinblue.com
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+
+# <EMAIL_CONFIRM_REDIRECT_BASE_URL>/<key>
+EMAIL_CONFIRM_REDIRECT_BASE_URL = \
+    "http://localhost:3000/email/confirm/"
+    
+# <PASSWORD_RESET_CONFIRM_REDIRECT_BASE_URL>/<uidb64>/<token>/
+PASSWORD_RESET_CONFIRM_REDIRECT_BASE_URL = \
+    "http://localhost:3000/password-reset/confirm/"
